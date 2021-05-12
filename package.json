@@ -1,6 +1,9 @@
 {
   "name": "@ricadesign/vue-wizard",
   "version": "0.1.0",
+  "main": "dist/vue-wizard.umd.js",
+  "module": "dist/vue-wizard.esm.js",
+  "unpkg": "dist/vue-wizard.min.js",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -8,7 +11,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --entry ./src/components/RicaVueStepper.vue",
-    "release": "yarn build --target wc --mode production",
+    "release": "yarn build --target lib --mode production",
     "lint": "vue-cli-service lint"
   },
   "release":{
