@@ -1,7 +1,7 @@
 <template>
   <div id="rica-vue-stepper-component" :class="{ 'with-gradient': secondaryColor }">
     <span class="line"></span>
-    <div
+    <a
       v-for="(step, index) in steps"
       :key="index"
       class="step"
@@ -14,10 +14,10 @@
       }"
       @click="go(step.name)"
     >
-      <div class="inner-circle"></div>
-      <div class="bullet">{{ index + 1 }}</div>
+      <span class="inner-circle"></span>
+      <span class="bullet">{{ index + 1 }}</span>
       <img v-if="image" :src="image" />
-    </div>
+    </a>
   </div>
 </template>
 
@@ -52,17 +52,20 @@ export default {
       type: Boolean,
       required: false,
     },
+    stepNavigationIsDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    maxIndex: {
+      type: Number,
+      required: false,
+      default: 0,
+    }
   },
   computed: {
     currentStep() {
       return this.steps.findIndex( step => step.name == this.$route.name);
     },
-    maxIndex() {
-      return 2
-    },
-    stepNavigationIsDisabled() {
-      return true
-    }
   },
   methods: {
     stepIsDisabled(stepIndex) {
